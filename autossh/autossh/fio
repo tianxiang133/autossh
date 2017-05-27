@@ -1,0 +1,2 @@
+#!/bin/bash
+fio -direct=1 -iodepth=$1 -rw=randread -ioengine=libaio -bs=4k -size=4G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=29G.libaio.randread.iodepth$1.numjobs1 --output=29G.libaio.randread.iodepth$1.numjobs1.log

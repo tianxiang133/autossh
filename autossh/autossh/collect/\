@@ -1,0 +1,2 @@
+#useage
+#./colect.sh $ip_path $read_or_write $iodepth $compute

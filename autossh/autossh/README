@@ -1,0 +1,8 @@
+#ipfile is need config server
+#input ip in ipfile
+#then
+#configuruation auto ssh
+#./run.sh ipfile
+#./fio.sh ipfile readfio/writefio $iodepth
+#mkfs device and mount to /mnt
+#./mkfs.sh ipfile

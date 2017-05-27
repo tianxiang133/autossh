@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ "$1" = "spstart" ];then
+for i in 15 16 17 20 21 23 24 25 30 31 32 33 46 47 48 49 50 51 52 53 54 55 56 57
+do
+#        ssh root@10.10.1.$i "ulimit -SHn 65535;sheep -y 10.10.1.$i -i host=172.16.100.$i,port=7002 -D -n /var/lib/sheepdog,/sheep/disk0,/sheep/disk1,/sheep/disk2,/sheep/disk3 -c zookeeper:10.10.1.15:2181,10.10.1.16:2181,10.10.1.17:2181 -w net=16,gway=24,io=2"
+        ssh root@10.10.1.$i "ulimit -SHn 65535;sheep -y 10.10.1.$i -i host=172.16.100.$i,port=7002 -D -n /var/lib/sheepdog,/sheep/disk0,/sheep/disk1,/sheep/disk2,/sheep/disk3 -c zookeeper:10.10.1.15:2181,10.10.1.16:2181,10.10.1.17:2181"
+
+#       ssh root@10.10.1.$i "hostname;ls /root/fbinstall"
+done
+exit 0
+fi
+
+ZCMD=$@
+
+for i in 15 16 17 20 21 23 24 25 30 31 32 33 46 47 48 49 50 51 52 53 54 55 56 57
+do
+	echo "- N$i ---- START ---- N$i -"
+	ssh root@10.10.1.$i "ulimit -SHn 65535; $ZCMD"
+	echo -e "----------  END  ----------\n"
+	sleep 0.5
+done
